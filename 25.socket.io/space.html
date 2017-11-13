@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    window.onload=function () {
+        var greensocket = io.connect('/green');
+        greensocket.on('connect',function () {
+            document.write('greensocket链接成功');
+            //向服务器发送消息
+            greensocket.send('hello server');
+        });
+        // 监听服务器发过来的消息
+        socket.on('message',function (msg) {
+            console.log(msg);
+        });
+    }
+</script>
+</html>
